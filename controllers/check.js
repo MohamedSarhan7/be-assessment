@@ -27,7 +27,7 @@ const createCheck = async (req, res, next) => {
 
 const updateCheck = async (req, res, next) => {
     try {
-        console.log(req.user)
+        // console.log(req.user)
         const result = validationResult(req);
         if (!result.isEmpty()) {
             const error = new Error()
@@ -38,25 +38,25 @@ const updateCheck = async (req, res, next) => {
         const checkId = req.params.id;
         const query = { user: req.user.user_id, _id: checkId }
         
-        // const checkUpdated = {
-        //     name: req.body.name,
-        //     url: req.body.url,
-        //     protocol: req.body.protocol,
-        //     path: req.body.path ||undefined,
-        //     port: req.body.port||undefined,
-        //     webhook: req.body.webhook||undefined,
-        //     authentication: req.body.authentication||undefined,
-        //     httpHeaders: req.body.httpHeaders||undefined,
-        //     assert: req.body.assert||undefined,
-        //     tags:req.body.tags||undefined,
-        //     ignoreSSL: req.body.ignoreSSL,
+        const updatedCheck = {
+            name: req.body.name,
+            url: req.body.url,
+            protocol: req.body.protocol,
+            path: req.body.path || null,
+            port: req.body.port || null,
+            webhook: req.body.webhook || null,
+            authentication: req.body.authentication||null,
+            httpHeaders: req.body.httpHeaders||null,
+            assert: req.body.assert || null,
+            tags: req.body.tags || null,
+            ignoreSSL: req.body.ignoreSSL,
 
-        // }
+        }
 
         // const check = await checkModel.findOneAndReplace(query, { ...req.body, user: req.user.user_id }, { new: true })
         // const check = await checkModel.findOneAndUpdate(query, updateCheck, { new: true })
 
-        const check = await checkModel.findOneAndUpdate(query, req.body, { new: true })
+        const check = await checkModel.findOneAndUpdate(query, { $set: { ...updatedCheck }}, { new: true })
         if (!check) {
             const error = new Error("you did't creat check with this id")
             error.status = 400;
