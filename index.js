@@ -17,7 +17,7 @@ app.use(express.json());
 // routes
 app.use('/api/v1', v1Router);
 app.use('/', (req, res) => {
-    res.send({ "message": "Hello, World!" })
+    return res.send({ "message": "Hello, World!" })
 
 });
 
@@ -31,3 +31,7 @@ app.use((error, req, res, next) => {
 app.listen(PORT, () => {
     console.log(`server running at http://localhost:${PORT} .....`)
 })
+
+
+
+module.exports = app;

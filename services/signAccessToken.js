@@ -6,6 +6,7 @@ const signAccessToken=(user)=>{
         {
             user_id: user._id,
             email: user.email,
+            isEmailVerified:user.isEmailVerified
         },
         TOKEN_KEY,
         {

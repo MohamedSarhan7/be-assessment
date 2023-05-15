@@ -6,7 +6,7 @@ const { SMTP_SERVER,
     HOSTNAME } = require('../config/config');
 
 
-const sendEmail = (to, subject, text) => {
+const sendEmail =(to, subject, text) => {
     const transporter = nodemailer.createTransport({
         host: SMTP_SERVER,
         port: SMTP_SERVER_PORT,

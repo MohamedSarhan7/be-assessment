@@ -76,7 +76,8 @@ const verifyEmail = async (req, res, next) => {
         if (user && await bcrypt.compare( user.email,req.body.verificationCode)) {
             user.isEmailVerified = true;
             user.save();
-            return res.status(200).send({ user: user, "message": "Email verified successfully" });
+            const token=signAccessToken(user)
+            return res.status(200).send({ user: user,token:token, "message": "Email verified successfully" });
         }
         const error = new Error("somthing went wrong Or user not found")
         error.status = 400;
