@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "d1c7c3b1-d8ae-4f4f-92bd-3df596528ec6",
+		"name": "be-assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19873401"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "auth/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\":\"mohamed sarhan\",\n    \"email\":\"mohamed@webabc.com\",\n    \"password1\":\"Mo7amed7#\",\n    \"password2\":\"Mo7amed7#\"\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"manutd@abc.com\",\n    \"password\":\"Mo7amed7#\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-email",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ2MWUzZDA0YjJjYTYxNDYwOTc4MTc1IiwiZW1haWwiOiJ0cnkubW9odXRkMTIzQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlhdCI6MTY4NDEzNjkxMiwiZXhwIjoxNjg0MTY1NzEyfQ.gJnmTkRKl5lQuO_LfiIdtZeUIqxflFs9TTbLQ3iV1dg",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"verificationCode\":\"$2b$10$GSx7l/vx2GRxfn77q4NCNO/gUxSG.Lq0KkS2EoKMk4b2WYUktXNCy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/verify-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"verify-email"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Check",
+			"item": [
+				{
+					"name": "createCheck",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ1ZjZhNTEwOThmNGU3NjBmMmU0ZDlmIiwiZW1haWwiOiJ0cnkubW9odXRkQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNjg0MTM0MzQ2LCJleHAiOjE2ODQxNjMxNDZ9.Csrvnp6b-96zPoU1oZlXFHT2uZzUI8raQLl_OcTQNN8",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"test check model\",\n    \"url\":\"www.testUrl.com\",\n    \"protocol\":\"HTTP\",\n    \"path\":\"/abc\",\n    \"port\":3000,\n    \"webhook\":\"www.testWebHookUrl.com\",\n    \"authentication\": {\n        \"username\":\"username test\",\n        \"password\":\"1234Mohamed##adada\"\n    },\n    \"httpHeaders\":[\n        {\n            \"key\":\"abcheader\",\n            \"value\":\"abcheader\"\n        },\n        {\n            \"key\":\"123header\",\n            \"value\":\"123header\"\n        }\n    ],\n    \"assert\":{\"statusCode\":201},\n    \"tags\":[\"test\",\"abc\",\"tag\"],\n    \"ignoreSSL\":true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/checks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"checks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllChecks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ1ZjZhNTEwOThmNGU3NjBmMmU0ZDlmIiwiZW1haWwiOiJ0cnkubW9odXRkQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNjg0MTg2ODc3LCJleHAiOjE2ODQyMTU2Nzd9.JWsyBUM7xpkWOM7Gc8XrJ0yYO3a2Ti5tgAx79Eh5JZY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/checks?page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"checks"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "tag",
+									"value": "6",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneCheck",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ2MWUzZDA0YjJjYTYxNDYwOTc4MTc1IiwiZW1haWwiOiJ0cnkubW9odXRkMTIzQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNjg0MTM3MDE0LCJleHAiOjE2ODQxNjU4MTR9.1ohIlxvEC4oj6F7yQSol6o5loMbY6yhGIyR-ZKLEsw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/checks/6461f61a62c52e13bb7fe942",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"checks",
+								"6461f61a62c52e13bb7fe942"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCheck",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ1ZjZhNTEwOThmNGU3NjBmMmU0ZDlmIiwiZW1haWwiOiJ0cnkubW9odXRkQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNjg0MTg2ODc3LCJleHAiOjE2ODQyMTU2Nzd9.JWsyBUM7xpkWOM7Gc8XrJ0yYO3a2Ti5tgAx79Eh5JZY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n   \n    \"name\": \"test check update 12322222\",\n    \"url\": \"www.testUrl.com\",\n    \"protocol\": \"HTTP\",\n    \"path\": \"/abc\",\n    \"webhook\": \"www.testWebHookUrl.com\",\n    \"timeout\": 5,\n    \"interval\": 10,\n    \"threshold\": 1,\n   \n        \"tags\": [\n        \"test2\" ,\n        \"test3\"\n    ],\n    \"ignoreSSL\": true\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/checks/6461ef462269f9a9c7fefd52",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"checks",
+								"6461ef462269f9a9c7fefd52"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOneCheck",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ2MWUzZDA0YjJjYTYxNDYwOTc4MTc1IiwiZW1haWwiOiJ0cnkubW9odXRkMTIzQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNjg0MTQwNTI3LCJleHAiOjE2ODQxNjkzMjd9.kjoFnJqYKbKLiJaSw3NvLmLKqBA-Xxd2hs6SCjpiU3g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/checks/6461f61a62c52e13bb7fe942",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"checks",
+								"6461f61a62c52e13bb7fe942"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "updateReport",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ2MWUzZDA0YjJjYTYxNDYwOTc4MTc1IiwiZW1haWwiOiJ0cnkubW9odXRkMTIzQGdtYWlsLmNvbSIsImlzRW1haWxWZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNjg0MTcwOTE4LCJleHAiOjE2ODQxOTk3MTh9.acGcucf3YTT0GEbxvaoon6Udpelbswr9UwGsjeMtGCw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n  \"status\": 0,\n  \"availability\": 2,\n  \"outages\": 0,\n  \"downtime\": 0,\n  \"uptime\": 0,\n  \"responseTime\": 0,\n  \"history\": []\n  \n    \n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/reports/64620b33f938b71fb608d1d5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								"64620b33f938b71fb608d1d5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
